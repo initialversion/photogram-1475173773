@@ -1,19 +1,17 @@
-class Comment < ApplicationRecord
+class Like < ApplicationRecord
   # Direct associations
 
   belongs_to :photo,
              :class_name => "Image",
              :counter_cache => true
 
-  belongs_to :commenter,
-             :class_name => "User",
-             :foreign_key => "user_id"
+  belongs_to :user
 
   # Indirect associations
 
   # Validations
 
-  validates :body, :presence => true
+  validates :photo_id, :uniqueness => { :scope => [:user_id], :message => "already liked" }
 
   validates :photo_id, :presence => true
 
