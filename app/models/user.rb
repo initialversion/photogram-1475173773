@@ -2,11 +2,9 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :comments,
-             :foreign_key => "commenter_id",
              :dependent => :destroy
 
   has_many   :likes,
-             :class_name => "Vote",
              :dependent => :destroy
 
   has_many   :received_friend_requests,
@@ -20,7 +18,7 @@ class User < ApplicationRecord
              :dependent => :destroy
 
   has_many   :posted_photos,
-             :class_name => "Photo",
+             :class_name => "Image",
              :foreign_key => "owner_id",
              :dependent => :destroy
 
@@ -44,7 +42,7 @@ class User < ApplicationRecord
 
   has_many   :follows,
              :through => :sent_friend_requests,
-             :source => :received_friend_requests
+             :source => :recipient
 
   # Validations
 
