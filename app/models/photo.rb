@@ -5,7 +5,6 @@ class Photo < ApplicationRecord
              :dependent => :destroy
 
   has_many   :likes,
-             :class_name => "Vote",
              :dependent => :destroy
 
   belongs_to :owner,

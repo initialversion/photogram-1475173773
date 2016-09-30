@@ -19,21 +19,21 @@ Rails.application.routes.draw do
   get "/delete_comment/:id", :controller => "comments", :action => "destroy"
   #------------------------------
 
-  # Routes for the Vote resource:
+  # Routes for the Like resource:
   # CREATE
-  get "/votes/new", :controller => "votes", :action => "new"
-  post "/create_vote", :controller => "votes", :action => "create"
+  get "/likes/new", :controller => "likes", :action => "new"
+  post "/create_like", :controller => "likes", :action => "create"
 
   # READ
-  get "/votes", :controller => "votes", :action => "index"
-  get "/votes/:id", :controller => "votes", :action => "show"
+  get "/likes", :controller => "likes", :action => "index"
+  get "/likes/:id", :controller => "likes", :action => "show"
 
   # UPDATE
-  get "/votes/:id/edit", :controller => "votes", :action => "edit"
-  post "/update_vote/:id", :controller => "votes", :action => "update"
+  get "/likes/:id/edit", :controller => "likes", :action => "edit"
+  post "/update_like/:id", :controller => "likes", :action => "update"
 
   # DELETE
-  get "/delete_vote/:id", :controller => "votes", :action => "destroy"
+  get "/delete_like/:id", :controller => "likes", :action => "destroy"
   #------------------------------
 
   # Routes for the Friend_request resource:

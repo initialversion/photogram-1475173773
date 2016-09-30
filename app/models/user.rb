@@ -6,7 +6,6 @@ class User < ApplicationRecord
              :dependent => :destroy
 
   has_many   :likes,
-             :class_name => "Vote",
              :dependent => :destroy
 
   has_many   :received_friend_requests,
