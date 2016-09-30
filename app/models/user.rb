@@ -6,7 +6,6 @@ class User < ApplicationRecord
              :dependent => :destroy
 
   has_many   :likes,
-             :class_name => "Vote",
              :dependent => :destroy
 
   has_many   :received_friend_requests,
@@ -20,7 +19,7 @@ class User < ApplicationRecord
              :dependent => :destroy
 
   has_many   :posted_photos,
-             :class_name => "Photo",
+             :class_name => "Image",
              :foreign_key => "owner_id",
              :dependent => :destroy
 
