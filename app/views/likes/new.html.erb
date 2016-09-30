@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @comment.errors.any? %>
-  <% @comment.errors.full_messages.each do |message| %>
+<% if @like.errors.any? %>
+  <% @like.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Comment #<%= @comment.id %></h3>
+  <h3>Add Like</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_comment/<%= @comment.id %>" method="post">
+    <form action="/create_like" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -24,7 +24,7 @@
           User
         </label>
 
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @comment.user_id), :class => "form-control") %>
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @like.user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for photo_id -->
@@ -33,23 +33,14 @@
           Photo
         </label>
 
-        <%= select_tag(:photo_id, options_from_collection_for_select(Image.all, :id, :created_at, @comment.photo_id), :class => "form-control") %>
+        <%= select_tag(:photo_id, options_from_collection_for_select(Image.all, :id, :created_at, @like.photo_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for body -->
-      <div class="form-group">
-        <label for="body" class="control-label">
-          Body
-        </label>
-
-        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @comment.body %></textarea>
-      </div>
-
-      <button class="btn btn-warning">
-        Update Comment
+      <button class="btn btn-success">
+        Create Like
       </button>
       or
-      <a href="/comments/<%= @comment.id %>">Cancel</a>
+      <a href="/likes">Cancel</a>
     </form>
   </div>
 </div>
