@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => "photos#index"
+  root :to => "images#index"
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
@@ -19,21 +19,21 @@ Rails.application.routes.draw do
   get "/delete_comment/:id", :controller => "comments", :action => "destroy"
   #------------------------------
 
-  # Routes for the Vote resource:
+  # Routes for the Like resource:
   # CREATE
-  get "/votes/new", :controller => "votes", :action => "new"
-  post "/create_vote", :controller => "votes", :action => "create"
+  get "/likes/new", :controller => "likes", :action => "new"
+  post "/create_like", :controller => "likes", :action => "create"
 
   # READ
-  get "/votes", :controller => "votes", :action => "index"
-  get "/votes/:id", :controller => "votes", :action => "show"
+  get "/likes", :controller => "likes", :action => "index"
+  get "/likes/:id", :controller => "likes", :action => "show"
 
   # UPDATE
-  get "/votes/:id/edit", :controller => "votes", :action => "edit"
-  post "/update_vote/:id", :controller => "votes", :action => "update"
+  get "/likes/:id/edit", :controller => "likes", :action => "edit"
+  post "/update_like/:id", :controller => "likes", :action => "update"
 
   # DELETE
-  get "/delete_vote/:id", :controller => "votes", :action => "destroy"
+  get "/delete_like/:id", :controller => "likes", :action => "destroy"
   #------------------------------
 
   # Routes for the Friend_request resource:
@@ -53,21 +53,21 @@ Rails.application.routes.draw do
   get "/delete_friend_request/:id", :controller => "friend_requests", :action => "destroy"
   #------------------------------
 
-  # Routes for the Photo resource:
+  # Routes for the Image resource:
   # CREATE
-  get "/photos/new", :controller => "photos", :action => "new"
-  post "/create_photo", :controller => "photos", :action => "create"
+  get "/images/new", :controller => "images", :action => "new"
+  post "/create_image", :controller => "images", :action => "create"
 
   # READ
-  get "/photos", :controller => "photos", :action => "index"
-  get "/photos/:id", :controller => "photos", :action => "show"
+  get "/images", :controller => "images", :action => "index"
+  get "/images/:id", :controller => "images", :action => "show"
 
   # UPDATE
-  get "/photos/:id/edit", :controller => "photos", :action => "edit"
-  post "/update_photo/:id", :controller => "photos", :action => "update"
+  get "/images/:id/edit", :controller => "images", :action => "edit"
+  post "/update_image/:id", :controller => "images", :action => "update"
 
   # DELETE
-  get "/delete_photo/:id", :controller => "photos", :action => "destroy"
+  get "/delete_image/:id", :controller => "images", :action => "destroy"
   #------------------------------
 
   devise_for :users
